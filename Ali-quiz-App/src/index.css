@@ -22,11 +22,17 @@ section.question-section {
   background-color: #DAC0A3;
 }
 
+section.question-section img.life-star {
+  width: 50px;
+  height: 50px;
+  padding: 0 10px 0 0;
+}
+
 section.question-section>.question {
-  margin-top: 50px;
+  margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
-  text-align: justify;
+  text-align: center;
   height: 200px;
   padding: 50px 20px 0 20px;
   background-color: #EADBC8;
@@ -56,4 +62,12 @@ section.answer-section>button {
   background-color: #F3EDC8;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   cursor: pointer;
+}
+
+section.answer-section>button.green {
+  background-color: green;
+}
+
+section.answer-section>button.wrong {
+  background-color: red;
 }
