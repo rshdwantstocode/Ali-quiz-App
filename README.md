@@ -1,4 +1,4 @@
 Ali Simple Quiz App!!
 
-npm i \t
+npm i
 npm i react-confetti
