@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import clsx from 'clsx'
 import questions from '../questions'
-import star from './assets/star.png'
 import ReactConfetti from 'react-confetti'
 import passedSound from './assets/win_sound_effect.m4a'
 import loseSound from './assets/lose_sound_effect.m4a'
@@ -17,8 +16,10 @@ function App() {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [timeLeft, setTimeLeft] = useState(5)
   const [isGameWon, setIsGameWon] = useState(false)
+  const [isGameOver, setIsGameOver] = useState(false);
+
   const question = questions[random]
-  let isGameOver = false
+  // let isGameOver = false
 
 
   function Questions() {
@@ -33,6 +34,7 @@ function App() {
           const audio = new Audio(loseSound)
           audio.play();
         }
+        setIsGameOver(true)
       }
     }, [random, score])
 
@@ -44,10 +46,10 @@ function App() {
     if (random < questions.length) {
       return <p key={question.id}>{question.question}</p>
     } else {
-      isGameOver = true
+      // isGameOver = true
       return <>
         <h3>Score: </h3>
-        {isGameWon && <ReactConfetti recycle={false} numberOfPieces={2000} />}
+
         <h4 className={clsx('total-score', {
           passed: score >= questions.length / 2,
           failed: score < questions.length / 2
@@ -117,23 +119,11 @@ function App() {
 
   }
 
-  // under development
-  function LifeStar() {
-    const stars = []
-    let totalLife = 0
-    while (totalLife < 3) {
-      totalLife++
-      stars.push(<img className='life-star' src={star} alt="life-star" />)
-    }
-    // console.log(stars);
-
-    return stars
-  }
-
   function NewGame() {
     setRandom(0)
     setScore(0)
     setSelectedAnswer(null)
+    setIsGameOver(false)
   }
 
 
@@ -143,12 +133,11 @@ function App() {
         <h1>Ali's Simple Quiz App</h1>
       </header>
 
+      {isGameWon && <ReactConfetti recycle={false} numberOfPieces={2000} />}
+
       <main>
         <section className='question-section'>
-          {/* <div>
-            {LifeStar()}
-          </div> */}
-
+          <h3 className={clsx('question-number', { hidden: isGameOver })}>Question: {random + 1} </h3>
           <div className='question'>
             {Questions()}
           </div>

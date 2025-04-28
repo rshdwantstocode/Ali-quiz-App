@@ -28,6 +28,7 @@ section.question-section {
   border-radius: 20px;
   padding: 20px;
   background-color: #DAC0A3;
+  margin-top: 50px;
 }
 
 
@@ -43,10 +44,20 @@ section.question-section>.question {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 1.5rem;
   text-align: center;
-  height: 200px;
+  height: 180px;
   padding: 50px 20px 0 20px;
   background-color: #EADBC8;
   border-radius: 20px;
+}
+
+section.question-section>.question-number {
+  font-family: Arial, Helvetica, sans-serif;
+  text-indent: 10px;
+  font-size: 1.2rem;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 section.question-section>.countdown-bar {
