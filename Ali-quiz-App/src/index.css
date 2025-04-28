@@ -14,13 +14,23 @@ header>h1 {
   text-align: center;
 }
 
+.passed {
+  color: green;
+}
+
+.failed {
+  color: red;
+}
+
 section.question-section {
   width: 700px;
-  height: 400px;
+  height: 350px;
   border-radius: 20px;
   padding: 20px;
   background-color: #DAC0A3;
 }
+
+
 
 section.question-section img.life-star {
   width: 50px;
